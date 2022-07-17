@@ -1,3 +1,9 @@
+"""
+ This is an implementation of URL-Tokenizer algorithm published 
+ @ WI-IAT '21: IEEE/WIC/ACM International Conference on Web Intelligence and Intelligent Agent Technology
+ @ by author Eint Sandi Aung
+ @ The paper is available on https://doi.org/10.1145/3486622.3493983
+"""
 import enchant
 from wordsegment import load, segment
 from transformers import BertTokenizer
