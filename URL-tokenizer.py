@@ -30,7 +30,7 @@ def ws_bt_ec(urls,mode):
     
         # Truncated Words
         for i in url:   
-            if not i.isalnum(): # Extracting Speical Characters
+            if (not i.isalnum()) and (string_check.search(i)!=None): # Extracting Speical Characters
                 sp_chars.append(i)
         for each in tmp_words:  # Words w/o Special Characters
             if len(each)>0 and len(each)<=50: # Set recursive length
@@ -38,8 +38,12 @@ def ws_bt_ec(urls,mode):
             elif len(each)>50: # Set recursive length
                 tok_words.append(each[:50].lower())
             if len(sp_chars) >0:    # Add Special Characters back
-                tok_words.append(str(sp_chars[0]))
-                sp_chars.remove(sp_chars[0])
+                if str(sp_chars[0])==' ':
+                    sp_chars.remove(sp_chars[0])
+                    #print('SPACE is removed!!!')
+                else:
+                    tok_words.append(str(sp_chars[0]))
+                    sp_chars.remove(sp_chars[0])
         
         # Recursive Tokenization
         for word in tok_words:
